@@ -28,6 +28,9 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         // Set the text view as the activity layout
         setContentView(textView);
+
+        if (getActionBar() != null)
+            getActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
@@ -44,6 +47,7 @@ public class DisplayMessageActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
     /**
      * A placeholder fragment containing a simple view.
