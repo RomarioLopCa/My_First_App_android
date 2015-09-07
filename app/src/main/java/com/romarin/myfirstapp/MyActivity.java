@@ -42,12 +42,16 @@ public class MyActivity extends AppCompatActivity {
     /**
      * Called when the user clicks the Send button
      */
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
+    public void sendMessage(View view) {//in this case, the view is the button when it was pushed.
+        //A Context as it's first parameter (this is used because the Activity class is a subclass of Context)
+        //The Class of the app component to which the system should deliver the Intent (in this case, the activity that should be started)
+        Intent next_view = new Intent(this, DisplayMessageActivity.class);
         EditText editText = (EditText) findViewById(R.id.edit_message);
+
         String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+        next_view.putExtra(EXTRA_MESSAGE, message);
+
+        startActivity(next_view);
     }
 
 }
