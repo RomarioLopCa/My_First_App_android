@@ -1,7 +1,9 @@
 package com.romarin.myfirstapp;
 
+import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Intent;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,8 +31,18 @@ public class DisplayMessageActivity extends AppCompatActivity {
         // Set the text view as the activity layout
         setContentView(textView);
 
-        if (getActionBar() != null)
-            getActionBar().setDisplayHomeAsUpEnabled(true);
+
+        setUpActionBar();
+    }
+
+
+    private void setUpActionBar() {
+        // Make sure we're running on Honeycomb or higher to use ActionBar APIs
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            ActionBar actionBar = getActionBar();
+            if (actionBar != null)
+                actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
